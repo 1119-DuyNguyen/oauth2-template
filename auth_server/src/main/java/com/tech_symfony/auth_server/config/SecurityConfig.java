@@ -62,7 +62,14 @@ public class SecurityConfig {
 		http.getConfigurer(OAuth2AuthorizationServerConfigurer.class)
 				.oidc(Customizer.withDefaults());	// Enable OpenID Connect 1.0
 		http
-				// Accept access tokens for User Info and/or Client Registration
+				// Redirect to the login page when not authenticated from the
+				// authorization endpoint
+				.exceptionHandling((exceptions) -> exceptions
+						.defaultAuthenticationEntryPointFor(
+								new LoginUrlAuthenticationEntryPoint("/login"),
+								new MediaTypeRequestMatcher(MediaType.TEXT_HTML)
+						)
+				)
 				.oauth2ResourceServer((resourceServer) -> resourceServer
 						.jwt(Customizer.withDefaults()));
 
@@ -74,21 +81,15 @@ public class SecurityConfig {
 	public SecurityFilterChain defaultSecurityFilterChain(HttpSecurity http)
 			throws Exception {
 		http
-				.formLogin(Customizer.withDefaults())
 				.authorizeHttpRequests((authorize) -> authorize
 						.requestMatchers(
-								"/.well-known/openid-configuration",
-								"/login",
-								"/error",
-								"/webjars/**",
-								"/images/**",
-								"/css/**",
-								"/assests/**",
-								"/actuator/**",
-								"/favicon.ico")
+								"/login"
+						)
+
 						.permitAll()
 						.anyRequest().authenticated()
-				);
+				)
+				.formLogin(Customizer.withDefaults());
 
 		return http.cors(Customizer.withDefaults()).build();
 	}

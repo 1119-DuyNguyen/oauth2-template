@@ -1,6 +1,5 @@
 package com.tech_symfony.resource_server.api.role;
 
-import com.tech_symfony.resource_server.api.role.viewmodel.RoleListVm;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

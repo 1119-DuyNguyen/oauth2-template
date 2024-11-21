@@ -2,14 +2,6 @@ server:
   port: 8080
 
 spring:
-  flyway:
-    out-of-order: true
-    baseline-version : 0
-    baseline-on-migrate: true
-    ignore-migration-patterns:
-      - "*:missing"
-      - "*:future"
-
   config:
     import: optional:configtree:/run/secrets/ , optional:file:.env[.properties]
   application:

@@ -3,10 +3,6 @@ server:
   port: 8082
 
 spring:
-  flyway:
-    baseline-version : 0
-    baseline-on-migrate: true
-    out-of-order: true
   security:
     oauth2:
       resourceserver:

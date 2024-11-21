@@ -1,0 +1,237 @@
+{
+	"info": {
+		"_postman_id": "6374a0ed-5d3a-4d26-b16e-b87864a75454",
+		"name": "auth_server",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "21549050",
+		"_collection_link": "https://api-cv-spring-boot.postman.co/workspace/api-cv-spring-boot-Workspace~4521af7a-9a87-4466-aed4-ac94a55b7741/collection/21549050-6374a0ed-5d3a-4d26-b16e-b87864a75454?action=share&source=collection_link&creator=21549050"
+	},
+	"item": [
+		{
+			"name": "roles",
+			"item": [
+				{
+					"name": "Lấy danh sách các nhóm quyền",
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": {
+								"addTokenTo": "header",
+								"redirect_uri": "https://oauth.pstmn.io/v1/browser-callback",
+								"scope": "openid",
+								"clientId": "public-client",
+								"clientSecret": "",
+								"client_authentication": "body",
+								"tokenName": "Postman-login",
+								"authUrl": "http://localhost:8080/oauth2/authorize",
+								"accessTokenUrl": "http://localhost:8080/oauth2/token",
+								"grant_type": "authorization_code_with_pkce"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "{{baseUrl}}/roles"
+					},
+					"response": []
+				},
+				{
+					"name": "Lấy chi tiết của một nhóm quyền",
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": {
+								"addTokenTo": "header",
+								"redirect_uri": "https://oauth.pstmn.io/v1/browser-callback",
+								"scope": "openid",
+								"clientId": "public-client",
+								"clientSecret": "",
+								"client_authentication": "body",
+								"tokenName": "Postman-login",
+								"authUrl": "http://localhost:8080/oauth2/authorize",
+								"accessTokenUrl": "http://localhost:8080/oauth2/token",
+								"grant_type": "authorization_code_with_pkce"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "{{baseUrl}}/roles/4"
+					},
+					"response": []
+				},
+				{
+					"name": "Sửa các quyền của một vai trò",
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": {
+								"addTokenTo": "header",
+								"redirect_uri": "https://oauth.pstmn.io/v1/browser-callback",
+								"scope": "openid",
+								"clientId": "public-client",
+								"clientSecret": "",
+								"client_authentication": "body",
+								"tokenName": "Postman-login",
+								"authUrl": "http://localhost:8080/oauth2/authorize",
+								"accessTokenUrl": "http://localhost:8080/oauth2/token",
+								"grant_type": "authorization_code_with_pkce"
+							}
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 4,\r\n    \"name\" : \"fsdffsdfs\",\r\n    \"permissions\" : [ \r\n    {\r\n        \"id\" : 1,\r\n        \"name\" : \"READ_ROLE222\"\r\n    }\r\n  ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{baseUrl}}/roles/4"
+					},
+					"response": []
+				},
+				{
+					"name": "Tạo một vai trò mới với các quyền nhất định",
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": {
+								"addTokenTo": "header",
+								"redirect_uri": "https://oauth.pstmn.io/v1/browser-callback",
+								"scope": "openid",
+								"clientId": "public-client",
+								"clientSecret": "",
+								"client_authentication": "body",
+								"tokenName": "Postman-login",
+								"authUrl": "http://localhost:8080/oauth2/authorize",
+								"accessTokenUrl": "http://localhost:8080/oauth2/token",
+								"grant_type": "authorization_code_with_pkce"
+							}
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 4,\r\n    \"name\" : \"\",\r\n    \"permissions\" : [ \r\n    {\r\n        \"id\" : 1,\r\n        \"name\" : \"READ_ROLE222\"\r\n    }\r\n  ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{baseUrl}}/roles"
+					},
+					"response": []
+				},
+				{
+					"name": "Xóa một vai trò",
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": {
+								"addTokenTo": "header",
+								"redirect_uri": "https://oauth.pstmn.io/v1/browser-callback",
+								"scope": "openid",
+								"clientId": "public-client",
+								"clientSecret": "",
+								"client_authentication": "body",
+								"tokenName": "Postman-login",
+								"authUrl": "http://localhost:8080/oauth2/authorize",
+								"accessTokenUrl": "http://localhost:8080/oauth2/token",
+								"grant_type": "authorization_code_with_pkce"
+							}
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/roles/:roleId",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"roles",
+								":roleId"
+							],
+							"variable": [
+								{
+									"key": "roleId",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Lấy danh sách tất cả quyền",
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": {
+								"addTokenTo": "header",
+								"redirect_uri": "https://oauth.pstmn.io/v1/browser-callback",
+								"scope": "openid",
+								"clientId": "public-client",
+								"clientSecret": "",
+								"client_authentication": "body",
+								"tokenName": "Postman-login",
+								"authUrl": "http://localhost:8080/oauth2/authorize",
+								"accessTokenUrl": "http://localhost:8080/oauth2/token",
+								"grant_type": "authorization_code_with_pkce"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "{{baseUrl}}/permission"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "get roles",
+			"request": {
+				"auth": {
+					"type": "oauth2",
+					"oauth2": {
+						"addTokenTo": "header"
+					}
+				},
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:8080/roles"
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "http://localhost:8080",
+			"type": "string"
+		}
+	]
+}

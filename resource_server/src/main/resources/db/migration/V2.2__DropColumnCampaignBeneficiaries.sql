@@ -1,0 +1,1 @@
+ALTER TABLE "beneficiaries" DROP COLUMN "campaign_id"

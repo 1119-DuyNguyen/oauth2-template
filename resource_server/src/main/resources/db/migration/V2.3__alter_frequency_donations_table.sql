@@ -1,0 +1,3 @@
+ALTER TABLE donations
+ALTER
+COLUMN frequency TYPE VARCHAR(255) USING (frequency::VARCHAR(255));
